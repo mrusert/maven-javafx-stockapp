@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" id="GridPane" alignment="center" hgap="10" vgap="10" fx:controller="com.java.stockapp.FXMLController">
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+    
+    <TextField minHeight="16" minWidth="69" fx:id="tf" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Button minHeight="16" minWidth="69" text="Search Stock" onAction="#handleButtonAction" fx:id="button" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    
+    <Label minHeight="16" minWidth="50"  text="Company:" GridPane.columnIndex="0" GridPane.rowIndex="1"  />
+    <Label minHeight="16" minWidth="50"  fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1"  />
+    <Label minHeight="16" minWidth="50" text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Label minHeight="16" minWidth="50"  fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label minHeight="16" minWidth="50" text="Bid:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <Label minHeight="16" minWidth="50" fx:id="bid" GridPane.columnIndex="1" GridPane.rowIndex="3"  />
+    <Label minHeight="16" minWidth="50" text="Ask:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <Label minHeight="16" minWidth="50" fx:id="ask" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Label minHeight="16" minWidth="50" text="Day High:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <Label minHeight="16" minWidth="50" fx:id="dayHigh" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Label minHeight="16" minWidth="50" text="Day Low:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+    <Label minHeight="16" minWidth="50" fx:id="dayLow" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+    <Label minHeight="16" minWidth="50" text="Last Trade:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+    <Label minHeight="16" minWidth="50" fx:id="lastTrade" GridPane.columnIndex="1" GridPane.rowIndex="7"  />
+    <Label minHeight="16" minWidth="50" fx:id="error" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="2" GridPane.rowSpan="2"  wrapText="true" />     
+       
+    <ButtonBar GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="CENTER" fx:id="buttonBar" >     
+        <fx:define>
+            <ToggleGroup fx:id="toggleGroup" />
+        </fx:define>
+        <buttons>
+                <RadioButton text="Live Quote" toggleGroup="$toggleGroup" onAction="#handleRadioAction" fx:id="liveQuote" />
+                <RadioButton text="Last Week" toggleGroup="$toggleGroup" onAction="#handleRadioAction" fx:id="weeklyQuote" />
+                <RadioButton text="Last Month" toggleGroup="$toggleGroup" onAction="#handleRadioAction" fx:id="monthlyQuote" />
+                <RadioButton text="Last Year" toggleGroup="$toggleGroup" onAction="#handleRadioAction" fx:id="yearlyQuote" />
+        </buttons>
+    </ButtonBar>
+    
+    <LineChart  title="Line Chart" fx:id="lineChart" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="8" > 
+        <xAxis><CategoryAxis animated="false" fx:id="xAxis" /> </xAxis>
+        <yAxis><NumberAxis animated="false" fx:id="yAxis"  /> </yAxis>
+        <legendSide>RIGHT</legendSide>
+    </LineChart>
+     
+</GridPane>
